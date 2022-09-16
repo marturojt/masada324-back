@@ -12,9 +12,11 @@ app.use(cookieParser());
 
 // allow cors requests from any origin and with credentials
 app.use(cors({ origin: (origin, callback) => callback(null, true), credentials: true }));
+// app.use(cors());
 
 // api routes
-app.use('/accounts', require('./accounts/accounts.controller'));
+app.use('/accounts', require('./components/accounts/accounts.controller'));
+app.use('/books', require('./components/books/books.controller'));
 
 // swagger docs route
 app.use('/api-docs', require('_helpers/swagger'));
